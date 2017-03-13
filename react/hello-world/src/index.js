@@ -17,10 +17,11 @@ const user = {
   lastName: 'Bera'
 };
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
+
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, ' + formatName(user)
 );
 
 ReactDOM.render(
