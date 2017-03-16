@@ -8,23 +8,38 @@ import './index.css';
 //   document.getElementById('root')
 // );
 
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
+// function formatName(user) {
+//   return user.firstName + ' ' + user.lastName;
+// }
+
+// const user = {
+//   firstName: 'Marcio',
+//   lastName: 'Bera'
+// };
+
+
+// const element = React.createElement(
+//   'h1',
+//   {className: 'greeting'},
+//   'Hello, ' + formatName(user)
+// );
+
+// ReactDOM.render(
+//   element,
+//   document.getElementById('root')
+// );
+
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
 }
 
-const user = {
-  firstName: 'Marcio',
-  lastName: 'Bera'
-};
-
-
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, ' + formatName(user)
-);
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+setInterval(tick, 1000);
