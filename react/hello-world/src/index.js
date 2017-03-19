@@ -2,44 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './App';
 import './index.css';
-function WarningBanner(props) {
-  if (!props.warn) {
-    return null;
-  }
 
+function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
   return (
-    <div className="warning">
-      Warning!
+    <div>
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+      }
     </div>
   );
 }
 
-class Page extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {showWarning: true}
-    this.handleToggleClick = this.handleToggleClick.bind(this);
-  }
-
-  handleToggleClick() {
-    this.setState(prevState => ({
-      showWarning: !prevState.showWarning
-    }));
-  }
-
-  render() {
-    return (
-      <div>
-        <WarningBanner warn={this.state.showWarning} />
-        <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? 'Hide' : 'Show'}
-        </button>
-      </div>
-    );
-  }
-}
-
+const messages = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
-  <Page />,
+  <Mailbox unreadMessages={messages} />,
   document.getElementById('root')
 );
