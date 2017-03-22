@@ -1,8 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import App from './App';
-// import LiftingStateUp from './LiftingStateUp';
-import './index.css';
 
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
@@ -36,8 +32,3 @@ class Calculator extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Calculator />,
-  document.getElementById('root')
-);
