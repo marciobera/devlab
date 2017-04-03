@@ -49,5 +49,9 @@ twitter = '@marciobera'
 nome_com_aspas_simples = 'Joana d\'Arc' 
 boas_vindas = "Seja be-vinda(o) " + nome_com_aspas_simples 
 
-puts boas_vindas
+# puts boas_vindas
 
+
+
+puts 'mensagem'
+puts "#{sleep 1}mensagem"
