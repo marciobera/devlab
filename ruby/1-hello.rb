@@ -32,4 +32,9 @@ end
 
 =end
 
-puts idade.class
+#puts idade.class
+
+habitantes = 7_000_000_000
+peso = 77.9
+puts habitantes
+puts peso
