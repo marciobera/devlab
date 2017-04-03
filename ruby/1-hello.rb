@@ -36,5 +36,14 @@ end
 
 habitantes = 7_000_000_000
 peso = 77.9
-puts habitantes
-puts peso
+#puts habitantes
+#puts peso
+
+
+nome_completo = "Marcio Bera"
+twitter = '@marciobera'
+
+puts nome_completo.class
+puts twitter.class
+
+
