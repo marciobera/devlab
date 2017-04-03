@@ -43,7 +43,11 @@ peso = 77.9
 nome_completo = "Marcio Bera"
 twitter = '@marciobera'
 
-puts nome_completo.class
-puts twitter.class
+#puts nome_completo.class
+#puts twitter.class
 
+nome_com_aspas_simples = 'Joana d\'Arc' 
+boas_vindas = "Seja be-vinda(o) " + nome_com_aspas_simples 
+
+puts boas_vindas
 
