@@ -1,2 +1,2 @@
 var serialGenerator = require('./serialGenerator.js');
-console.log(serialGenerator);
+console.log(serialGenerator.generate());
