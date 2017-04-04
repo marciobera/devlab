@@ -1,5 +1,9 @@
 var max = 10000;
 
-module.exports.generate = function () {
+var generate = function () {
 	return Math.floor(Math.random() * max);
 };
+
+module.exports = {
+	generate: generate
+}
