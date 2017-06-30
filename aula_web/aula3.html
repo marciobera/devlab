@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Aula 3 - Revisão</title>
+</head>
+<body>
+	<h1>Aula 3 - Formulários</h1>
+
+	<form action="http://localhost:8888/aula3/acao.php" method="POST">
+		<fieldset>
+			<legend>Dados:</legend>
+			<!-- Nome: -->
+			<input 
+			type="text" name="nome" placeholder="Seu nome"><br>
+			<!-- Email: -->
+			<input type="text" name="email" placeholder="Seu email"><br>
+			<!-- Telefone: -->
+			<input type="tel" name="telefone" placeholder="Seu telefone"><br>
+			<!-- Senha: -->
+			<input type="password" name="sena" placeholder="Sua senha" maxlength="6">
+			<br>
+			<label for="masculino">
+				<input id="masculino" type="radio" name="sexo" value="M"> Masculino
+			</label>
+			<label for="feminino">
+				<input id="feminino" type="radio" name="sexo" vaue="F"> Feminino
+			</label>
+			<br>
+			<label><input type="checkbox" name="generos[]" value="sporte"> Sporte</label>
+			<label><input type="checkbox" name="generos[]" value="musica"> Música</label>
+			<label><input type="checkbox" name="generos[]" value="auto"> Auto</label>
+			<br>
+			<select name="estado">
+				<option value="PR">Paraná</option>
+				<option value="SC">Santa Catarina</option>
+				<option value="SP">São Paulo</option>
+				<option value="RJ" selected disabled>Rio de Janeiro</option>
+			</select>
+			<br>
+			<textarea name="bio" cols="30" rows="5"></textarea>
+			<br>
+			<br>
+			<input type="submit" value="Enviar">
+		</fieldset>
+	</form>
+
+</body>
+</html>
