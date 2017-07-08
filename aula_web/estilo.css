@@ -1,0 +1,32 @@
+body{
+	background-color: #cccccc;
+	background-image: url('images.jpeg');
+	/*background-repeat: no-repeat;*/
+	background-attachment: fixed;
+	font-family: "Verdana";
+}
+h1{
+	background-color: #00ff56;
+	color:green;
+}
+a{
+	text-decoration: none;
+	color:#ffffff;
+	background-color: blue;
+	padding:5px 10px;
+	font-style: italic;
+}
+
+#ancora1{
+	background-color: #ff00ff;
+	color:white;
+	padding:20px;
+}
+
+p{
+	/*background-color:#000;*/
+	color:yellow;
+}
+div p{
+	color:blue;
+}
