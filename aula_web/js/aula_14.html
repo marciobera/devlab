@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aula 14 - PSW 2017</title>
+</head>
+<body>
+
+	<h1>Aula 14</h1>
+	<p>
+		Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo. Delegadis gente finis, bibendum egestas augue arcu ut est. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!
+	</p>
+	<p>
+		Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus.
+	</p>
+	<p>
+		Diuretics paradis num copo é motivis de denguis. Viva Forevis aptent taciti sociosqu ad litora torquent. Aenean aliquam molestie leo, vitae iaculis nisl. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.
+	</p>
+	<p>
+		Mé faiz elementum girarzis, nisi eros vermeio. Per aumento de cachacis, eu reclamis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+	</p>
+
+	<button
+	onmouseover="alert('Vai curintia!');"
+	onclick="this.innerHTML = Date(); ">Que horas são?</button>
+
+	<form name="form1" onsubmit="return valida();">
+		<p>
+			<strong>Nome:</strong><br>
+			<input type="text" name="nome">
+		</p>
+		<p>
+			<strong>Email:</strong><br>
+			<input type="email" name="email">
+		</p>
+		<p>
+			<strong>Idade:</strong><br>
+			<input type="number" name="idade">
+		</p>
+		<input type="submit" value="Enviar">
+	</form>
+
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">OK</button>
+<p id="demo"></p>
+
+	<script type="text/javascript" src="aula_14.js"></script>
+	<script>
+	function myFunction() {
+	    var inpObj = document.getElementById("id1");
+	    console.log(inpObj.checkValidity());
+		inpObj.setCustomValidity("");
+	    if (inpObj.checkValidity() == false) {
+	        inpObj.setCustomValidity("Ocorreu um erro!");
+	        document.getElementById("demo").innerHTML  = inpObj.validationMessage;
+	    } else {
+        	document.getElementById("demo").innerHTML = "Input OK";
+    	} 
+	}
+	</script>
+	
+</body>
+</html>
