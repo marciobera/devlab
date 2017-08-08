@@ -8,13 +8,16 @@ const Estilos = {
 		fontSize: 30,
 		backgroundColor: '#08509B',
 		color: '#fff',
+		padding: 5,
 		paddingLeft: 10,
-		paddingBottom: 5,
 		paddingTop: 20,
 		shadowColor: '#000',
 		shadowOffset: {width: 0, height: 5},
 		shadowOpacity: 0.5,
-		shadowRadius: 10
+		shadowRadius: 10,
+		textAlign: 'center',
+		// fontStyle: 'italico',
+		fontWeight: '600'
 	}
 };
 
