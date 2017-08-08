@@ -1,30 +1,32 @@
 //Import
 import React from 'react';
-import { Text, AppRegistry } from 'react-native';
+import { Text, AppRegistry, View } from 'react-native';
 
 //Formatações
 const Estilos = {
 	estiloTexto: {
-		fontSize: 30,
+		fontSize: 40,
 		backgroundColor: '#08509B',
-		color: '#fff',
-		padding: 5,
-		paddingLeft: 10,
-		paddingTop: 20,
-		shadowColor: '#000',
-		shadowOffset: {width: 0, height: 5},
-		shadowOpacity: 0.5,
-		shadowRadius: 10,
-		textAlign: 'center',
-		// fontStyle: 'italico',
-		fontWeight: '600'
+		height: 60,
+		width:60
+
+	},
+	estiloView: {
+		backgroundColor: 'skyblue',
+		height:300,
+		//flex-start, center, flex-end
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 };
 
 //Criar o componente
 const App = () => {
+	const { estiloTexto, estiloView } = Estilos;
   return (
-      <Text style={ Estilos.estiloTexto }>Frases do Dia</Text>
+  	<View style={ estiloView } >
+      <Text style={ Estilos.estiloTexto }></Text>
+    </View>
     );
 };
 
