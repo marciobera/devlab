@@ -1,35 +1,27 @@
 //Import
 import React from 'react';
-import { Text, AppRegistry, View } from 'react-native';
+import { Text, AppRegistry, View, Button } from 'react-native';
 
 //Formatações
 const Estilos = {
 	principal: {
-		flex: 1,
-		backgroundColor: 'cornflowerblue'
-	},
-	topo: {
-		flex: 2,
-		backgroundColor: 'brown'
-	},
-	conteudo: {
-		flex: 8,
-		backgroundColor: 'yellowgreen'
-	},
-	rodape: {
-		flex: 1,
-		backgroundColor: 'orangered'
+		paddingTop:40
 	}
 };
-
+const botaoPressionado = () => {
+	alert('Botão pressionado!');
+};
 //Criar o componente
 const App = () => {
-	const { principal, topo, conteudo, rodape } = Estilos;
+	const { principal } = Estilos;
   return (
   	<View style={ principal } >
-      <Text style={ topo }>Topo</Text>
-      <Text style={ conteudo }>Conteudo</Text>
-      <Text style={ rodape }>Rodapé</Text>
+      <Button 
+      	onPress={botaoPressionado}
+      	title="Clique aqui"
+      	color="#841584"
+      	acessabilityLabel="Clique aqui para abrir as notícias"
+      /> 
     </View>
     );
 };
