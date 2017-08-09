@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -11,104 +5,98 @@ import {
   Text,
   View,
   Button,
-  Image
 } from 'react-native';
 
 import Topo from './src/components/topo';
 import Icone from './src/components/icone';
 
-class app3 extends Component{
+class app3 extends Component {
 
   constructor(props) {
     super(props);
     
-    this.state = {
-      escolhaUsuario: '', 
-      escolhaComputador: '', 
-      resultado: ''
-    };
+    this.state = { escolhaUsuario: '', escolhaComputador: '', resultado: '' };
   }
 
-  jokenpo(escolhaUsuario){
-
+  jokenpo(escolhaUsuario) {
     //gera número aleatório (0, 1, 2)
-    var numAleatorio = Math.floor(Math.random() * 3);
+    const numAleatorio = Math.floor(Math.random() * 3);
 
-    var escolhaComputador = '';
+    let escolhaComputador = '';
 
-    switch(numAleatorio){
+    switch (numAleatorio) {
       case 0: escolhaComputador = 'pedra'; break;
       case 1: escolhaComputador = 'papel'; break;
       case 2: escolhaComputador = 'tesoura'; break;
+      default: escolhaComputador = '';
     }
 
-    var resultado = '';
+    let resultado = '';
 
-    if(escolhaComputador == 'pedra'){
-      if(escolhaUsuario == 'pedra'){
+    if (escolhaComputador === 'pedra') {
+      if (escolhaUsuario === 'pedra') {
         resultado = 'Empate';
       }
-      else if(escolhaUsuario == 'papel'){
+      else if (escolhaUsuario === 'papel') {
         resultado = 'Você ganhou';
-      }else{
+      } else {
         resultado = 'Você perdeu';
       }
-    }else
-    if(escolhaComputador == 'papel'){
-      if(escolhaUsuario == 'papel'){
+    } else
+    if (escolhaComputador === 'papel') {
+      if (escolhaUsuario === 'papel') {
         resultado = 'Empate';
       }
-      else if(escolhaUsuario == 'tesoura'){
+      else if (escolhaUsuario === 'tesoura') {
         resultado = 'Você ganhou';
-      }else{
+      } else {
         resultado = 'Você perdeu';
       }
-    }else{
-      if(escolhaUsuario == 'tesoura'){
+    } else {
+      if (escolhaUsuario === 'tesoura'){
         resultado = 'Empate';
       }
-      else if(escolhaUsuario == 'pedra'){
+      else if (escolhaUsuario === 'pedra') {
         resultado = 'Você ganhou';
-      }else{
+      } else {
         resultado = 'Você perdeu';
       }
     }
 
-    this.setState({
-      escolhaUsuario : escolhaUsuario, 
-      escolhaComputador : escolhaComputador, 
-      resultado : resultado
-    });
+    this.setState({ escolhaUsuario, escolhaComputador, resultado });
 
   }
 
 
-  render(){
+  render() {
     return (
       <View>
-        <Topo></Topo>
+
+        <Topo />
         
         <View style={styles.painelAcoes}>
 
           <View style={styles.btnEscolha}>
-            <Button title='pedra' onPress={() => { this.jokenpo('pedra')}} />
+            <Button title='pedra' onPress={() => { this.jokenpo('pedra'); }} />
           </View>
 
           <View style={styles.btnEscolha}>
-            <Button title='papel' onPress={() => { this.jokenpo('papel')}} />
+            <Button title='papel' onPress={() => { this.jokenpo('papel'); }} />
           </View>
 
           <View style={styles.btnEscolha}>
-            <Button title='tesoura' onPress={() => { this.jokenpo('tesoura')}} />
+            <Button title='tesoura' onPress={() => { this.jokenpo('tesoura'); }} />
           </View>
 
         </View>
         
         <View style={styles.palco}>
+
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
-          <Icone escolha={this.state.escolhaComputador} jogador='Computador'></Icone> 
-          <Icone escolha={this.state.escolhaUsuario} jogador='Você'></Icone> 
+          <Icone escolha={this.state.escolhaComputador} jogador='Computador' /> 
+
+          <Icone escolha={this.state.escolhaUsuario} jogador='Você' /> 
 
         </View>
         
