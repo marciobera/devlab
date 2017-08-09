@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native';
 
 class app3 extends Component{
@@ -78,9 +79,12 @@ class app3 extends Component{
 
   }
 
+
   render(){
     return (
       <View>
+        <Topo></Topo>
+        
         <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
         <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
         <Text>Resultado: {this.state.resultado}</Text>
@@ -97,6 +101,16 @@ class app3 extends Component{
       );
   }
 
+}
+
+class Topo extends Component{
+  render(){
+    return(
+      <View>
+        <Image source={require('./imgs/jokenpo.png')} />
+      </View>
+      ); 
+  }
 }
 
 AppRegistry.registerComponent('app3', () => app3);
