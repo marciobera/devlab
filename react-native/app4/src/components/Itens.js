@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
 	item: {
 		padding:10,
 		margin:10,
+		marginTop: 5,
+		marginBottom: 5,
 		borderWidth: 0.5,
 		borderColor: '#999',
 		flexDirection: 'row',
