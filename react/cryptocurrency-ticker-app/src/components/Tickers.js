@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Tickers.css';
 import Cryptocurrency from './Cryptocurrency';
+import axios from 'axios';
 
 class Tickers extends Component {
 
