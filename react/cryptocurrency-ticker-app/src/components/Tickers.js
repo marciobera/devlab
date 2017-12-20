@@ -5,17 +5,7 @@ import axios from 'axios';
 
 class Tickers extends Component {
 
-	fetchCryptocurrencyData(){
-		axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
-			.then(response => {
-				var wanted = ["bitcoin", "ethereum", "litecoin"];
-				var result = response.data.filter(currency => wanted.includes(currency.id));
-				this.setState({data: result});
-			})
-			.catch(err => console.log(err));
-	}
-
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
 			data: [
@@ -49,6 +39,22 @@ class Tickers extends Component {
     	]
 		};
 	}
+
+	componentDidMount() {
+		this.fetchCryptocurrencyData();
+		this.interval = setInterval(() => this.fetchCryptocurrencyData(), 10 * 1000);
+	}
+
+	fetchCryptocurrencyData() {
+		axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
+			.then(response => {
+				var wanted = ["bitcoin", "ethereum", "litecoin"];
+				var result = response.data.filter(currency => wanted.includes(currency.id));
+				this.setState({data: result});
+			})
+			.catch(err => console.log(err));
+	}
+
 
 	render(){
 		var tickers = this.state.data.map(currency => <Cryptocurrency data={currency} key={currency.id} />);
