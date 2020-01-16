@@ -25,7 +25,7 @@ class Queue
      */
     public function pop()
     {
-        return array_pop($this->items);
+        return array_shift($this->items);
     }
 
     /**
