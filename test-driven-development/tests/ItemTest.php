@@ -1,29 +1,33 @@
 <?php
 
+use App\Item;
+use App\ItemChild;
 use PHPUnit\Framework\TestCase;
 
 class ItemTest extends TestCase
 {
     public function testDescriptionIsNotEmpty()
     {
-        $item = new App\Item;
+        $item = new Item;
         
         $this->assertNotEmpty($item->getDescription());
     }
 
     public function testIDisAnInteger()
     {
-        $item = new App\ItemChild;
+        $item = new ItemChild;
 
         $this->assertIsInt($item->getID());
     }
 
     public function testTokenIsAString()
     {
-        $this->markTestSkipped('Cannot test private methods');
-        
-        $item = new App\ItemChild;
+        $item = new Item;
+        $reflector = new ReflectionClass(Item::class);
+        $method = $reflector->getMethod('getToken');
+        $method->setAccessible(true);
+        $result = $method->invoke($item);
 
-        $this->assertIsString($item->getToken());
+        $this->assertIsString($result);
     }
 }
