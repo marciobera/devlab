@@ -13,8 +13,17 @@ class ItemTest extends TestCase
 
     public function testIDisAnInteger()
     {
-        $item = new App\Item;
+        $item = new App\ItemChild;
 
         $this->assertIsInt($item->getID());
+    }
+
+    public function testTokenIsAString()
+    {
+        $this->markTestSkipped('Cannot test private methods');
+        
+        $item = new App\ItemChild;
+
+        $this->assertIsString($item->getToken());
     }
 }

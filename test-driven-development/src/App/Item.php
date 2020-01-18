@@ -19,7 +19,7 @@ class Item
      *
      * @return integer The ID
      */
-    protected function getId()
+    protected function getID()
     {
         return rand();
     }
