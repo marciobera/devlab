@@ -7,11 +7,11 @@ class MockTest extends TestCase
     public function testMock()
     {
 
-        $mockedMailer = $this->createMock(Mailer::class);
-        $mockedMailer->method('sendMessage')
+        $mockMailer = $this->createMock(Mailer::class);
+        $mockMailer->method('sendMessage')
                      ->willReturn(true);
 
-        $result = $mockedMailer->sendMessage('marcio@example.com', 'Hello');
+        $result = $mockMailer->sendMessage('marcio@example.com', 'Hello');
 
         $this->assertTrue($result);
     }
