@@ -10,4 +10,9 @@ class Article
 {
     /** @var string Article title */
     public $title;
+
+    public function getSlug()
+    {
+        return '';
+    }
 }
