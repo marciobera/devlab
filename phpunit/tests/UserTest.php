@@ -6,8 +6,6 @@ class UserTest extends TestCase
 {
     public function testReturnsFullName()
     {
-        require 'User.php';
-
         $user = new User;
 
         $user->first_name = "Teresa";
@@ -21,5 +19,17 @@ class UserTest extends TestCase
         $user = new User;
 
         $this->assertEquals('', $user->getFullName());
+    }
+
+    /**
+     * @test
+     */
+    public function userHasFirstName()
+    {
+        $user = new User;
+        
+        $user->first_name = 'Teresa';
+
+        $this->assertEquals('Teresa', $user->first_name);
     }
 }
