@@ -37,4 +37,35 @@ class OrderTest extends TestCase
         $order->amount = 200;
         $this->assertTrue($order->process());
     }
+
+    public function testOrderIsProcessedUsingAMock()
+    {
+        $mockGateway = Mockery::mock('PaymentGateway');
+        
+        $order = new Order($mockGateway, 3, 1.99);
+
+        $this->assertEquals(5.97, $order->amount);
+
+        $mockGateway->shouldReceive('charge')
+        ->once()
+        ->with(5.97);
+        
+        $order->chargeAmount($mockGateway);
+    }
+
+    public function testOrderIsProcessedUsingASpy()
+    {
+        // Just used to inject in the constructor
+        $mockGateway = Mockery::mock('PaymentGateway');
+        $order = new Order($mockGateway, 3, 1.99);
+
+        $this->assertEquals(5.97, $order->amount);
+
+        $spyGateway = Mockery::spy('PaymentGateway');
+        $order->chargeAmount($spyGateway);
+
+        $spyGateway->shouldHaveReceived('charge')
+                   ->once()
+                   ->with(5.97);
+    }
 }
