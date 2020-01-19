@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Mailer;
+use Mailer;
 
 /**
  * User
@@ -13,9 +13,6 @@ class User
 {
     /** @var string         Email address */
     public $email;
-
-    /** @var callable|array         Mailer callable */
-    protected $mailerCallable;
 
     /**
      * Constructor
@@ -36,18 +33,6 @@ class User
      */
     public function notify(string $message)
     {
-        return call_user_func($this->mailerCallable, $this->email, $message);
-        // return $this->mailer::send($this->email, $message);
-    }
-
-    /**
-     * Set the Mailer service
-     *
-     * @param Mailer $mailer
-     * @return void
-     */
-    public function setMaileCallable(callable $mailerCallable)
-    {
-        $this->mailerCallable = $mailerCallable;
+        return Mailer::send($this->email, $message);
     }
 }

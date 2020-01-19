@@ -1,6 +1,5 @@
 <?php
 
-use App\Mailer;
 use PHPUnit\Framework\TestCase;
 
 class MailerTest extends TestCase
