@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const imgUrl = "https://raw.githubusercontent.com/marciobera/devlab/master/games-js/dave-cards/";
     // Card options
     const cardArray = [
         {
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ]
 
-    cardArray.sort(() => .5 - Math.random())
+    cardArray.sort(() => 0.5 - Math.random())
 
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
@@ -80,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             const card = document.createElement('img');
-            card.setAttribute('src', 'images/blank.png')
+            card.setAttribute('src', imgUrl + 'images/blank.png')
             card.setAttribute('data-id', i.toString())
             card.addEventListener('click', flipCard)
             grid.appendChild(card)
@@ -95,14 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cardsChosen[0].img === cardsChosen[1].img) {
             // alert('You fond a match');
-            cards[optionOneId].setAttribute('src', 'images/white.png')
+            cards[optionOneId].setAttribute('src', imgUrl + 'images/white.png')
             cards[optionOneId].removeEventListener('click', flipCard)
-            cards[optionTwoId].setAttribute('src', 'images/white.png')
+            cards[optionTwoId].setAttribute('src', imgUrl + 'images/white.png')
             cards[optionTwoId].removeEventListener('click', flipCard)
             cardsWon.push(cardsChosen);
         } else {
-            cards[optionOneId].setAttribute('src', 'images/blank.png')
-            cards[optionTwoId].setAttribute('src', 'images/blank.png')
+            cards[optionOneId].setAttribute('src', imgUrl + 'images/blank.png')
+            cards[optionOneId].addEventListener('click', flipCard)
+            cards[optionTwoId].setAttribute('src', imgUrl + 'images/blank.png')
+            cards[optionTwoId].addEventListener('click', flipCard)
             // alert('Sorry, try again');
         }
 
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosen.push(cardArray[cardId]);
         cardsChosenId.push(cardId);
         this.setAttribute('src', cardArray[cardId].img)
+        this.removeEventListener('click', flipCard)
         if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500)
         }
