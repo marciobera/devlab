@@ -8,7 +8,7 @@ const createWindow = () => {
 
   if (externalDisplay) {
     // Open on the secondary monitor
-    win = new BrowserWindow({
+    const win = new BrowserWindow({
       x: externalDisplay.bounds.x + 0,
       y: externalDisplay.bounds.y + 0,
       fullscreen: true,
