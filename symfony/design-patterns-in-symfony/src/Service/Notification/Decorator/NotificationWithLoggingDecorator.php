@@ -3,13 +3,13 @@
 namespace App\Service\Notification\Decorator;
 
 use App\Service\Notification\Contract\NotificationInterface;
-use Symfony\Component\HttpKernel\Log\Logger;
+use Psr\Log\LoggerInterface;
 
 class NotificationWithLoggingDecorator implements NotificationInterface
 {
     public function __construct(
         private readonly NotificationInterface $notification,
-        private readonly Logger $logger
+        private readonly LoggerInterface $logger
     ) {
     }
     public function send(string $message): string
