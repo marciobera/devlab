@@ -1,0 +1,1 @@
+FROM marciobera/docker-node-base:latest
