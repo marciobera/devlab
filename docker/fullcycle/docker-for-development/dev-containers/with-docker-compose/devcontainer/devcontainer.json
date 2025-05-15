@@ -1,0 +1,9 @@
+{
+  "name": "Existing Docker Compose (Extended)",
+  "dockerComposeFIle": [
+    "../docker-compose.dev.yaml",
+    "docker-compose.yaml"
+  ],
+  "service": "web1",
+  "workspaceFolder": "/home/node/app"
+}

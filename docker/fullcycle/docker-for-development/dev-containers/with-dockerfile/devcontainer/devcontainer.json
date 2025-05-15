@@ -1,0 +1,10 @@
+{
+  "name": "Existing Dockerfile",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile.dev"
+  },
+  "overrideCommand": false,
+  "workspaceFolder": "/home/node/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/node/app,type=bind,consistency=cached"
+}
