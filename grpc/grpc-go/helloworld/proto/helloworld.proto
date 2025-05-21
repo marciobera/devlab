@@ -4,6 +4,28 @@ option go_package = "github.com/marciobera/devlab/grpc/grpc-go/helloworld/proto"
 
 package helloworld;
 
+enum GreetingType {
+    option allow_alias = true;
+    FORMAL = 0;
+    UNKNOWN = 0;
+    INFORMAL = 1;
+}
+
+message UserDetails {
+    string name = 1;
+    uint32 age = 2;
+    optional bool is_active = 3;
+}
+
+message GreetRequest {
+    GreetingType type = 1;
+    repeated UserDetails users = 2;
+}
+
+message GreetReply {
+    map<string, string> messages = 1;
+}
+
 message HelloRequest {
     string name = 1;
 }
