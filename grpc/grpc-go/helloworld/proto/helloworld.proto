@@ -4,6 +4,14 @@ option go_package = "github.com/marciobera/devlab/grpc/grpc-go/helloworld/proto"
 
 package helloworld;
 
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
+
 enum GreetingType {
     option allow_alias = true;
     FORMAL = 0;
@@ -13,8 +21,9 @@ enum GreetingType {
 
 message UserDetails {
     string name = 1;
-    uint32 age = 2;
+    reserved 2; // always that remove a field keeps this index reserved to avoid errors with client
     optional bool is_active = 3;
+    optional uint32 birth_year = 4;
 }
 
 message GreetRequest {
@@ -24,13 +33,6 @@ message GreetRequest {
 
 message GreetReply {
     map<string, string> messages = 1;
-}
-
-message HelloRequest {
-    string name = 1;
-}
-message HelloReply {
-    string message = 1;
 }
 
 service Greeter {

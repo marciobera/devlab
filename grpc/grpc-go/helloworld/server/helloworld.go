@@ -35,6 +35,10 @@ func (s *Server) Greet(xtc context.Context, request *pb.GreetRequest) (*pb.Greet
 				greeting += " Looks like you're currently inactive."
 			}
 		}
+
+		if user.BirthYear != nil {
+			greeting += fmt.Sprintf(" Birth Year: %d", user.GetBirthYear())
+		}
 		messages[user.GetName()] = greeting;
 	}
 
