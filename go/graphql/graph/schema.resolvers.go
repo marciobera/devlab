@@ -33,7 +33,6 @@ func (r *courseResolver) Category(ctx context.Context, obj *model.Course) (*mode
 	if err != nil {
 		return nil, err
 	}
-
 	return &model.Category{
 		ID:          category.ID,
 		Name:        category.Name,
