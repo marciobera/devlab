@@ -42,6 +42,66 @@ Type of parameter (string) and index position - for internal control of protocol
 
 ---
 
+## Communication models
+
+### API "unary"
+
+A Client send a request to Server and receive a unique response
+```
+       | ----request---> |
+Client |                 | Server
+       | <---response--- |
+```
+
+### API "Server streaming"
+
+A client send a request to Server and receive multiple responses (in batches)
+
+```
+       | ----request---> |
+       | <---response--- |
+Client | <-------------- | Server
+       | <-------------- |
+       | <-------------- |
+```
+
+### API "Client streaming"
+
+A Client send multiple requests to Server (in batches) and when the Server receives everything it sends a response back to Client
+```
+       | ----request---> |
+       | --------------> |
+Client | --------------> | Server
+       | <---response--- |
+       | <-------------- |
+       | <-------------- |
+```
+
+### API "Bi directional streaming"
+
+A Client can send multiple requests (streaming) to the Server which returns multiple responses (streaming) to the Client
+```
+       | ----request---> |
+       | --------------> |
+Client | --------------> | Server
+       | --------------> |
+       | <---response--- |
+```
+
+## REST vs gRPC
+
+* Text / JSON `vs` Protocol Buffers
+* Unidirectional `vs` Bidirectional and assync
+* High latency `vs` Low latency
+* No strict contract (more chances of errors) `vs` Pre-define contracts (.proto)
+* No streaming support (Request / Response) `vs` Streaming support
+* Pre-defined design `vs` Design is not pre-defined
+* Third-party libraries `vs` Auto-generated code
+
+## Plugins for GO
+* *Protoc Gen Go* is a plugin that will read the proto files and generate all files.
+* *Protoc Gen Go gRPC* is a compiler for protocol buffer v3.
+
 ```bash
 protoc --go_out=. --go_opt=module=github.com/marciobera/devlab/grpc/grpc-go --go-grpc_out=. --go-grpc_opt=module=github.com/marciobera/devlab/grpc/grpc-go helloworld/proto/helloworld.proto
 ```
@@ -55,3 +115,9 @@ protoc --encode=helloworld.GreetRequest helloworld.proto < request.txt > wire_fo
 ```
 
 Decoder: https://protobuf-decoder.netlify.app/
+
+
+# Proto definitions
+
+## Enum
+When adding `option allow_alias = true;` it allows using the key or value of it in the request.
